@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulario Asignatura + Precio</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 16px;
+      box-sizing: border-box;
+    }
+
+    .form-group {
+      display: flex;
+      gap: 16px;
+      align-items: flex-end;
+    }
+
+    .form-group div {
+      flex: 1;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 4px;
+      font-weight: bold;
+    }
+
+    select, input[type="number"] {
+      width: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="form-group">
+      <div>
+        <label for="asignatura">Asignatura</label>
+        <select id="asignatura">
+          <option value="">Selecciona una asignatura</option>
+          <option value="Matemáticas">Matemáticas</option>
+          <option value="Física">Física</option>
+          <option value="Química">Química</option>
+          <option value="Lengua">Lengua</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="precio">Precio por hora (€)</label>
+        <input type="number" id="precio" placeholder="Ej: 25.00" min="0" step="0.01" />
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('asignatura').addEventListener('change', function () {
+      const asignatura = this.value;
+      const precio = document.getElementById('precio');
+
+      switch (asignatura) {
+        case 'Matemáticas':
+          precio.value = '25.00';
+          break;
+        case 'Física':
+          precio.value = '30.00';
+          break;
+        case 'Química':
+          precio.value = '28.00';
+          break;
+        case 'Lengua':
+          precio.value = '22.00';
+          break;
+        default:
+          precio.value = '';
+      }
+    });
+  </script>
+</body>
+</html>
